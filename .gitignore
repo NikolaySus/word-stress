@@ -170,5 +170,13 @@ cython_debug/
 # Ruff stuff:
 .ruff_cache/
 
+# checkpoints
+checkpoints/
+
+# character-tokenizer
+character-tokenizer/
+
+
+
 # PyPI configuration file
 .pypirc

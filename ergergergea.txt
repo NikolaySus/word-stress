@@ -1,0 +1,17 @@
+import numpy as np
+
+def compute_metrics(p):
+    predictions, labels = p
+
+    # Take the argmax to determine the predicted stress position
+    preds = np.argmax(predictions, axis=-1)
+
+    # Mask out the -100 labels (ignored tokens)
+    mask = labels != -100
+    preds = preds[mask]
+    labels = labels[mask]
+
+    # Calculate accuracy: check if the predicted stress position matches the true stress position
+    accuracy = np.sum(preds == labels) / len(labels)
+
+    return {"accuracy": accuracy}
